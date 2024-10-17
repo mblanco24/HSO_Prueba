@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\App\Http\Controllers\CarController;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('cars', CarController::class);
+Route::resource('/cars', CarController::class);
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
