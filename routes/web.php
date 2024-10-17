@@ -16,11 +16,13 @@ use App\Http\Controllers\CarController;
 */
 
 Route::get('/', function () {
+    //return redirect ('/cars');
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect ('/cars');
+    //return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
